@@ -35,7 +35,7 @@ class Main:
 
 
 
-
+    #nest other exit methods inside normal_exit YOU FOOL!
     def normal_exit(self):
         os.system("clear")
         input("hit Enter to KILL application: ")

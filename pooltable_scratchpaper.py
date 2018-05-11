@@ -5,6 +5,7 @@ import time
 
 
 mystore = Manager()
+#mystore.update_from_config()
 mystore.load_table_state()
 mystore.set_up_tables()
 mystore.display_tables()
@@ -24,6 +25,10 @@ mystore.cash_out(4)
 mystore.big_dump()
 mystore.load_table_state()
 mystore.big_dump()
+#mystore.dump_config()
+#mystore.change_hourly_rate(50.0)
+print(mystore.hourly_rate)
+
 
 
 #ok so im set to deliver pool table number, start date time, end date time, total time, and close_table
