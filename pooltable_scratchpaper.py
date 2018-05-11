@@ -5,6 +5,7 @@ import time
 
 
 mystore = Manager()
+mystore.load_table_state()
 mystore.set_up_tables()
 mystore.display_tables()
 mystore.rent_out_table(2)
@@ -12,8 +13,17 @@ mystore.rent_out_table(6)
 mystore.close_table(7)
 mystore.display_tables()
 input("wait a few minutes")
-mystore.cash_table(6)
-#mystore.generate_report()
+mystore.cash_out(6)
+mystore.table_to_dict()
+mystore.close_table(43)
+mystore.big_dump()
+mystore.generate_report()
+mystore.rent_out_table(4)
+mystore.rent_out_table(3)
+mystore.cash_out(4)
+mystore.big_dump()
+mystore.load_table_state()
+mystore.big_dump()
 
 
 #ok so im set to deliver pool table number, start date time, end date time, total time, and close_table
