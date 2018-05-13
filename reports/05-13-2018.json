@@ -1,0 +1,26 @@
+[
+  {
+    "table_number": 2,
+    "status": "open",
+    "start_stamp": "2018-05-13 13:38:06.261359",
+    "start_time": 1526236686.261387,
+    "end_stamp": "2018-05-13 13:38:10.605286",
+    "end_time": 1526236690.605312,
+    "total_stamp": "0.07 minutes",
+    "total_time": 4.3439249992370605,
+    "rate": 30,
+    "cost": 0.04
+  },
+  {
+    "table_number": 3,
+    "status": "open",
+    "start_stamp": "2018-05-13 13:38:03.813049",
+    "start_time": 1526236683.8131049,
+    "end_stamp": "2018-05-13 13:38:15.309112",
+    "end_time": 1526236695.3091378,
+    "total_stamp": "0.19 minutes",
+    "total_time": 11.496032953262329,
+    "rate": 30,
+    "cost": 0.1
+  }
+]

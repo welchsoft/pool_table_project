@@ -56,7 +56,7 @@ class Manager:
             self.table_array.append(Pooltable(index,"open",self.hourly_rate))
         print("I AM THE TABLE!")
         self.big_dump()
-        
+
     def load_table_state(self):
         os.system("touch pooltable_save_state.json")
         with open('pooltable_save_state.json') as file:
@@ -131,24 +131,25 @@ class Manager:
             file.write(json.dumps(self.dict_array,indent=2))
 
     def generate_report(self):
+        os.system("mkdir Reports")
         self.report_date = time.strftime("%m-%d-%Y")
-        os.system("touch "+self.report_date+".json")
+        os.system("touch Reports/"+self.report_date+".json")
 
     def append_report(self,table_select):
         self.generate_report()
 
-        with open(self.report_date+".json",'r+') as file:
+        with open("Reports/"+self.report_date+".json",'r+') as file:
             file.seek(0)
             first_char = file.read(1)
             if not first_char:
                 file.write("[]")
             else:
-                with open(self.report_date+".json") as load_report:
+                with open("Reports/"+self.report_date+".json") as load_report:
                     self.report_array = json.load(load_report)
 
         self.report_array.append(self.table_array[table_select].__dict__)
 
-        with open(self.report_date+".json",'w') as report_json:
+        with open("Reports/"+self.report_date+".json",'w') as report_json:
             report_json.write(json.dumps(self.report_array,indent=2))
 
     def update_from_config(self):
