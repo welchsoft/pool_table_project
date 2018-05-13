@@ -13,7 +13,7 @@ class Pooltable:
         self.total_stamp = ''
         self.total_time = 0
         self.rate = rate
-        self.cost = 0.0
+        self.sales = 0.0
 
 #sets table to occupied, and time values for start time /stamp
     def occupy_table(self):
@@ -46,8 +46,8 @@ class Pooltable:
     def cash_table(self):
         if self.status == "occupied":
             self.open_table()
-            self.cost = round((self.rate/60) * (self.total_time/60),2)
-            print(f"The due for Table[{self.table_number}]: ${self.cost} [̲̅$̲̅(̲̅ιο̲̅̅)̲̅$̲̅]")
+            self.sales = round((self.rate/60) * (self.total_time/60),2)
+            print(f"The due for Table[{self.table_number}]: ${self.sales} [̲̅$̲̅(̲̅ιο̲̅̅)̲̅$̲̅]")
             input("cash out customer then hit Enter")
         else:
             print("Error: invalid table status ")
@@ -64,11 +64,11 @@ class Pooltable:
         elif self.status == "occupied":
             self.cash_table()
 #needed to load from file the state of all atributes that are not set up on instantiation
-    def rebuild(self,start_stamp,start_time,end_stamp,end_time,total_stamp,total_time,cost):
+    def rebuild(self,start_stamp,start_time,end_stamp,end_time,total_stamp,total_time,sales):
         self.start_stamp = start_stamp
         self.start_time = start_time
         self.end_stamp = end_stamp
         self.end_time = end_time
         self.total_stamp = total_stamp
         self.total_time = total_time
-        self.cost = cost
+        self.sales = sales

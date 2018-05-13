@@ -14,6 +14,7 @@ class Manager:
         self.report_array = []
         self.config = {}
         self.flag = True
+        self.total_sales = 0
 
 #checks to make sure pool tables are cashed out before allowing a re-initialization of pool tables
 # figure out on the fly pool table count changes and hourly rate changes
@@ -78,13 +79,16 @@ class Manager:
         self.table_array = []
         for dict in self.dict_array:
             pooltable = Pooltable(dict["table_number"],dict["status"],dict["rate"])
-            pooltable.rebuild(dict["start_stamp"],dict["start_time"],dict["end_stamp"],dict["end_time"],dict["total_stamp"],dict["total_time"],dict["cost"])
+            pooltable.rebuild(dict["start_stamp"],dict["start_time"],dict["end_stamp"],dict["end_time"],dict["total_stamp"],dict["total_time"],dict["sales"])
             self.table_array.append(pooltable)
 
 #displays the tables and their state, shouldnt this be in the main menu???
     def display_tables(self):
         for table in self.table_array:
-            print(f"Table[{table.table_number}]: {table.status}:")
+            if table.status == "occupied":
+                print(f"Table[{table.table_number}]: {table.status}: session start: {table.start_stamp}: playtime: {round((time.time() - table.start_time)/60,2)} minutes")
+            else:
+                print(f"Table[{table.table_number}]: {table.status}:")
 
 #Tried to make 2 columns, didnt work out maybe some day!
         #if len(self.table_array)%2 == 0:
@@ -113,6 +117,7 @@ class Manager:
             self.table_array[table_select].cash_table()
             self.append_report(table_select)
         self.big_dump()
+        self.total_sales += self.table_array[table_select].sales
 #revive table that is in maintenance
     def open_up_table(self,table_select):
         if table_select not in range(len(self.table_array)):

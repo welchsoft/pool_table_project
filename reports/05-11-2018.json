@@ -9,7 +9,7 @@
     "total_stamp": "0.05 minutes",
     "total_time": 2.9772932529449463,
     "rate": 30.0,
-    "cost": 0.02
+    "sales": 0.02
   },
   {
     "table_number": 5,
@@ -21,7 +21,7 @@
     "total_stamp": "0.0 minutes",
     "total_time": 0.0029740333557128906,
     "rate": 30.0,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 7,
@@ -33,7 +33,7 @@
     "total_stamp": "0.02 minutes",
     "total_time": 0.9613170623779297,
     "rate": 30.0,
-    "cost": 0.01
+    "sales": 0.01
   },
   {
     "table_number": 5,
@@ -45,7 +45,7 @@
     "total_stamp": "0.0 minutes",
     "total_time": 0.005291938781738281,
     "rate": 30.0,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 7,
@@ -57,7 +57,7 @@
     "total_stamp": "0.02 minutes",
     "total_time": 0.9109129905700684,
     "rate": 30.0,
-    "cost": 0.01
+    "sales": 0.01
   },
   {
     "table_number": 5,
@@ -69,7 +69,7 @@
     "total_stamp": "0.0 minutes",
     "total_time": 0.005501985549926758,
     "rate": 30.0,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 7,
@@ -81,7 +81,7 @@
     "total_stamp": "0.01 minutes",
     "total_time": 0.7361059188842773,
     "rate": 30.0,
-    "cost": 0.01
+    "sales": 0.01
   },
   {
     "table_number": 5,
@@ -93,7 +93,7 @@
     "total_stamp": "0.0 minutes",
     "total_time": 0.006269931793212891,
     "rate": 30.0,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 7,
@@ -105,7 +105,7 @@
     "total_stamp": "0.01 minutes",
     "total_time": 0.6231849193572998,
     "rate": 30.0,
-    "cost": 0.01
+    "sales": 0.01
   },
   {
     "table_number": 5,
@@ -117,7 +117,7 @@
     "total_stamp": "0.0 minutes",
     "total_time": 0.0046122074127197266,
     "rate": 30.0,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 7,
@@ -129,7 +129,7 @@
     "total_stamp": "0.01 minutes",
     "total_time": 0.8286669254302979,
     "rate": 30.0,
-    "cost": 0.01
+    "sales": 0.01
   },
   {
     "table_number": 5,
@@ -141,7 +141,7 @@
     "total_stamp": "0.0 minutes",
     "total_time": 0.005039215087890625,
     "rate": 30.0,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 7,
@@ -153,7 +153,7 @@
     "total_stamp": "0.02 minutes",
     "total_time": 1.0460097789764404,
     "rate": 30.0,
-    "cost": 0.01
+    "sales": 0.01
   },
   {
     "table_number": 5,
@@ -165,7 +165,7 @@
     "total_stamp": "0.0 minutes",
     "total_time": 0.009060859680175781,
     "rate": 30.0,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 7,
@@ -177,7 +177,7 @@
     "total_stamp": "0.02 minutes",
     "total_time": 0.9914171695709229,
     "rate": 30.0,
-    "cost": 0.01
+    "sales": 0.01
   },
   {
     "table_number": 5,
@@ -189,6 +189,6 @@
     "total_stamp": "0.0 minutes",
     "total_time": 0.009521961212158203,
     "rate": 30.0,
-    "cost": 0.0
+    "sales": 0.0
   }
 ]

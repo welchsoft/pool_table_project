@@ -1,5 +1,7 @@
 from pooltable_manager import *
 import os
+#import threading
+#nice try but a nightmare to debug maybe next time ill have an auto refreshing page
 
 class Main:
     def __init__(self):
@@ -9,15 +11,18 @@ class Main:
         self.menu_select = ''
         self.table_pointer = ''
         self.options_input = ''
+        self.main_flag = True
 
 #main "loop" for decision making, it actualy just relies on recursive calls after most choices conclude
     def main_menu(self):
-        os.system("clear")
-        self.ascii_pool()
-        self.display_hourly_rate()
-        self.mystore.display_tables()
-        self.menu_primary_options()
-        self.menu_select = input("[Q] to Quit: ").lower()
+        self.display_loop()
+        #os.system("clear")
+        #self.ascii_pool()
+        #self.display_hourly_rate()
+        #self.display_total_sales()
+        #self.mystore.display_tables()
+        #self.menu_primary_options()
+        self.menu_select = input("\t[Q] to Quit: \n").lower()
 
         if self.menu_select == "1":
             self.mystore.rent_out_table(self.table_selecter())
@@ -39,6 +44,9 @@ class Main:
             self.options_menu()
             self.main_menu()
 
+        #elif self.menu_select == "R":
+        #    self.main_menu()
+
         elif self.menu_select == "q":
             self.normal_exit()
 
@@ -54,24 +62,39 @@ class Main:
         else:
             self.main_menu()
 
+    def display_loop(self):
+        #threading.Timer(10.0, self.display_loop).start()
+        os.system("clear")
+        self.ascii_pool()
+        self.display_hourly_rate()
+        self.display_total_sales()
+        self.mystore.display_tables()
+        self.menu_primary_options()
+
 #maybe this will be expanded later, for now its a glorified print statement
     def display_hourly_rate(self):
-        print(f"Hourly Rate: is ${self.mystore.hourly_rate}")
+        print(f"\n[Hourly Rate: is ${self.mystore.hourly_rate}]")
+
+
+    def display_total_sales(self):
+        print(f"Current Total Sales: ${self.mystore.total_sales}")
+        print("==========================================")
 
 #options for the main menu
     def menu_primary_options(self):
-        print("[1] rent out table: ")
-        print("[2] cash out table: ")
-        print("[3] close table for maintenance: ")
-        print("[4] release table from maintenance: ")
-        print("[5] for options menu: ")
+        print("==================[MENU]==================")
+        print("\t[1] Rent out table: ")
+        print("\t[2] Cash out table: ")
+        print("\t[3] Close table for maintenance: ")
+        print("\t[4] Release table from maintenance: ")
+        print("\t[5] Options menu: ")
 
 #options options menu side path off the main menu
     def options_menu(self):
         os.system("clear")
         self.display_hourly_rate()
         self.options_menu_options()
-        self.menu_select = input("\t[X] to go back: ").lower()
+        self.menu_select = input("\t[X] to go back: \n").lower()
 
         if self.menu_select == "1":
             self.mystore.set_up_tables()
@@ -86,7 +109,7 @@ class Main:
             self.options_menu()
 
         elif self.menu_select == "4":
-            self.menu_select = input("Are you realy sure? (yes / no): ")
+            self.menu_select = input("Are you realy sure? This is the Nuclear option! (yes / no): ")
             if self.menu_select.lower() == "yes":
                 self.mystore.force_set_up_tables()
                 input()
@@ -142,18 +165,18 @@ class Main:
 
 #the logo how spiffy!
     def ascii_pool(self):
-        print("        ____")
-        print("    ,dP9CGG88@b,")
-        print("  ,IP  _   Y888@@b,")
-        print(" dIi  (_)   G8888@b")
-        print("dCII  (_)   G8888@@b")
-        print("GCCIi     ,GG8888@@@")
-        print("GGCCCCCCCGGG88888@@@")
-        print("GGGGCCCGGGG88888@@@@...")
-        print("Y8GGGGGG8888888@@@@P.....")
-        print(" Y88888888888@@@@@P......")
-        print(" `Y8888888@@@@@@@P'......")
-        print("    `@@@@@@@@@P'.......")
+        print("\t        ____")
+        print("\t    ,dP9CGG88@b,")
+        print("\t  ,IP  _   Y888@@b,")
+        print("\t dIi  (_)   G8888@b")
+        print("\tdCII  (_)   G8888@@b")
+        print("\tGCCIi     ,GG8888@@@")
+        print("\tGGCCCCCCCGGG88888@@@")
+        print("\tGGGGCCCGGGG88888@@@@...")
+        print("\tY8GGGGGG8888888@@@@P.....")
+        print("\t Y88888888888@@@@@P......")
+        print("\t `Y8888888@@@@@@@P'......")
+        print("\t    `@@@@@@@@@P'.......")
 
 #got a bit carried away with easter egg exits
 #nest other exit methods inside normal_exit YOU FOOL!

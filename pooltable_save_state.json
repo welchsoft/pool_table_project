@@ -9,7 +9,7 @@
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 2,
@@ -21,19 +21,19 @@
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 3,
-    "status": "open",
-    "start_stamp": "",
-    "start_time": 0,
+    "status": "occupied",
+    "start_stamp": "2018-05-13 15:48:27.252622",
+    "start_time": 1526244507.252649,
     "end_stamp": "",
     "end_time": 0,
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 4,
@@ -45,19 +45,19 @@
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 5,
-    "status": "open",
-    "start_stamp": "",
-    "start_time": 0,
+    "status": "occupied",
+    "start_stamp": "2018-05-13 15:48:30.676856",
+    "start_time": 1526244510.676883,
     "end_stamp": "",
     "end_time": 0,
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 6,
@@ -69,7 +69,7 @@
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 7,
@@ -81,7 +81,7 @@
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 8,
@@ -93,19 +93,19 @@
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 9,
-    "status": "open",
-    "start_stamp": "",
-    "start_time": 0,
+    "status": "occupied",
+    "start_stamp": "2018-05-13 15:48:33.556360",
+    "start_time": 1526244513.5563881,
     "end_stamp": "",
     "end_time": 0,
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 10,
@@ -117,7 +117,7 @@
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 11,
@@ -129,7 +129,7 @@
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 12,
@@ -141,6 +141,6 @@
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   }
 ]

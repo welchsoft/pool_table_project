@@ -9,7 +9,7 @@
     "total_stamp": "0.07 minutes",
     "total_time": 4.3439249992370605,
     "rate": 30,
-    "cost": 0.04
+    "sales": 0.04
   },
   {
     "table_number": 3,
@@ -21,7 +21,7 @@
     "total_stamp": "0.19 minutes",
     "total_time": 11.496032953262329,
     "rate": 30,
-    "cost": 0.1
+    "sales": 0.1
   },
   {
     "table_number": 2,
@@ -33,7 +33,7 @@
     "total_stamp": "0.07 minutes",
     "total_time": 4.3439249992370605,
     "rate": 30,
-    "cost": 0.04
+    "sales": 0.04
   },
   {
     "table_number": 1,
@@ -45,7 +45,7 @@
     "total_stamp": "0.12 minutes",
     "total_time": 7.223419904708862,
     "rate": 30,
-    "cost": 0.06
+    "sales": 0.06
   },
   {
     "table_number": 13,
@@ -57,7 +57,7 @@
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
   },
   {
     "table_number": 13,
@@ -69,6 +69,150 @@
     "total_stamp": "",
     "total_time": 0,
     "rate": 30,
-    "cost": 0.0
+    "sales": 0.0
+  },
+  {
+    "table_number": 3,
+    "status": "open",
+    "start_stamp": "2018-05-13 14:24:46.488842",
+    "start_time": 1526239486.488916,
+    "end_stamp": "2018-05-13 14:25:12.558259",
+    "end_time": 1526239512.558292,
+    "total_stamp": "0.43 minutes",
+    "total_time": 26.06937599182129,
+    "rate": 30,
+    "sales": 0.22
+  },
+  {
+    "table_number": 6,
+    "status": "open",
+    "start_stamp": "2018-05-13 14:25:05.814589",
+    "start_time": 1526239505.814616,
+    "end_stamp": "2018-05-13 14:25:18.717895",
+    "end_time": 1526239518.7179232,
+    "total_stamp": "0.22 minutes",
+    "total_time": 12.90330719947815,
+    "rate": 30,
+    "sales": 0.11
+  },
+  {
+    "table_number": 3,
+    "status": "open",
+    "start_stamp": "2018-05-13 14:27:53.335894",
+    "start_time": 1526239673.335954,
+    "end_stamp": "2018-05-13 14:42:49.774322",
+    "end_time": 1526240569.774348,
+    "total_stamp": "14.94 minutes",
+    "total_time": 896.4383940696716,
+    "rate": 30,
+    "sales": 7.47
+  },
+  {
+    "table_number": 3,
+    "status": "closed",
+    "start_stamp": "2018-05-13 14:27:53.335894",
+    "start_time": 1526239673.335954,
+    "end_stamp": "2018-05-13 14:42:49.774322",
+    "end_time": 1526240569.774348,
+    "total_stamp": "14.94 minutes",
+    "total_time": 896.4383940696716,
+    "rate": 30,
+    "sales": 7.47
+  },
+  {
+    "table_number": 3,
+    "status": "open",
+    "start_stamp": "2018-05-13 14:44:26.842374",
+    "start_time": 1526240666.842401,
+    "end_stamp": "2018-05-13 14:45:01.666790",
+    "end_time": 1526240701.666816,
+    "total_stamp": "0.58 minutes",
+    "total_time": 34.8244149684906,
+    "rate": 30,
+    "sales": 0.29
+  },
+  {
+    "table_number": 5,
+    "status": "open",
+    "start_stamp": "2018-05-13 14:42:33.570551",
+    "start_time": 1526240553.570605,
+    "end_stamp": "2018-05-13 14:45:07.586699",
+    "end_time": 1526240707.586726,
+    "total_stamp": "2.57 minutes",
+    "total_time": 154.01612091064453,
+    "rate": 30,
+    "sales": 1.28
+  },
+  {
+    "table_number": 7,
+    "status": "open",
+    "start_stamp": "2018-05-13 14:42:40.709676",
+    "start_time": 1526240560.709703,
+    "end_stamp": "2018-05-13 14:45:11.714621",
+    "end_time": 1526240711.7146492,
+    "total_stamp": "2.52 minutes",
+    "total_time": 151.00494623184204,
+    "rate": 30,
+    "sales": 1.26
+  },
+  {
+    "table_number": 3,
+    "status": "open",
+    "start_stamp": "2018-05-13 14:46:05.086337",
+    "start_time": 1526240765.0863628,
+    "end_stamp": "2018-05-13 14:47:08.228090",
+    "end_time": 1526240828.228116,
+    "total_stamp": "1.05 minutes",
+    "total_time": 63.14175319671631,
+    "rate": 30,
+    "sales": 0.53
+  },
+  {
+    "table_number": 3,
+    "status": "open",
+    "start_stamp": "2018-05-13 14:48:31.283338",
+    "start_time": 1526240911.2834141,
+    "end_stamp": "2018-05-13 14:58:48.462484",
+    "end_time": 1526241528.462516,
+    "total_stamp": "10.29 minutes",
+    "total_time": 617.1791019439697,
+    "rate": 30,
+    "sales": 5.14
+  },
+  {
+    "table_number": 3,
+    "status": "open",
+    "start_stamp": "2018-05-13 15:14:42.344849",
+    "start_time": 1526242482.344885,
+    "end_stamp": "2018-05-13 15:47:15.101625",
+    "end_time": 1526244435.1016588,
+    "total_stamp": "32.55 minutes",
+    "total_time": 1952.7567737102509,
+    "rate": 30,
+    "sales": 16.27
+  },
+  {
+    "table_number": 5,
+    "status": "open",
+    "start_stamp": "2018-05-13 15:14:44.640773",
+    "start_time": 1526242484.640799,
+    "end_stamp": "2018-05-13 15:47:25.194859",
+    "end_time": 1526244445.194886,
+    "total_stamp": "32.68 minutes",
+    "total_time": 1960.5540869235992,
+    "rate": 30,
+    "sales": 16.34
+  },
+  {
+    "table_number": 8,
+    "status": "open",
+    "start_stamp": "",
+    "start_time": 0,
+    "end_stamp": "",
+    "end_time": 0,
+    "total_stamp": "",
+    "total_time": 0,
+    "rate": 30,
+    "sales": 0.0
   }
 ]
