@@ -3,6 +3,11 @@ from pooltable_manager import *
 from datetime import datetime
 import time
 
+#known errors:
+
+#using release from maintencance on a table that is actualy occupied, opens it without cashing out
+#could be considered a feature for free games
+
 
 mystore = Manager()
 #mystore.update_from_config()

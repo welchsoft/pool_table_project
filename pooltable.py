@@ -21,6 +21,9 @@ class Pooltable:
             print(f"table[{self.table_number}] is now occupied!")
             self.start_stamp = str(datetime.now())
             self.start_time = time.time()
+        else:
+            print("Error: invalid table status ")
+            input()
 
 
     def open_table(self):
@@ -33,20 +36,32 @@ class Pooltable:
             self.total_stamp = str(round((self.total_time)/60,2))+" minutes"
         elif self.status == "closed":
             self.status = "open"
+            print(f"Table[{self.table_number}] back online! ")
+            input()
+        else:
+            print("Table is already open: ")
+            input()
 
     def cash_table(self):
-        self.open_table()
-        self.cost = round((self.rate/60) * (self.total_time/60),2)
-        print(f"The due for Table[{self.table_number+1}]: ${self.cost} [̲̅$̲̅(̲̅ιο̲̅̅)̲̅$̲̅]")
+        if self.status == "occupied":
+            self.open_table()
+            self.cost = round((self.rate/60) * (self.total_time/60),2)
+            print(f"The due for Table[{self.table_number}]: ${self.cost} [̲̅$̲̅(̲̅ιο̲̅̅)̲̅$̲̅]")
+            input("cash out customer then hit Enter")
+        else:
+            print("Error: invalid table status ")
+            input()
 
     def close_table(self):
         if self.status == "open":
             self.status = "closed"
             print(f"table[{self.table_number}] is down for maintenance!")
+            input()
         elif self.status == "closed":
             print(f"table[{self.table_number}] is already closed!")
+            input()
         elif self.status == "occupied":
-            print("Table occupied it must be opened first")
+            self.cash_table()
 
     def rebuild(self,start_stamp,start_time,end_stamp,end_time,total_stamp,total_time,cost):
         self.start_stamp = start_stamp

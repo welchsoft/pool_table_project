@@ -13,23 +13,50 @@ class Manager:
         self.dict_array = []
         self.report_array = []
         self.config = {}
+        self.flag = True
 
+    def table_reset_permissions(self):
+        self.flag = True
+        for table in self.table_array:
+            if table.status == "occupied":
+                print(f"Table[{table.table_number}] is occupied cash out first!")
+                self.flag = False
+        if self.flag == False:
+            print("Error you must cash out before proceeding")
+            input()
+        else:
+            True
     def change_table_count(self,new_table_count):
-        self.table_count = new_table_count
-        self.dump_config()
-        self.table_array = []
-        #warn user this will destroy the tables
+            if self.table_reset_permissions():
+                self.table_count = new_table_count
+                self.dump_config()
+                self.set_up_tables()
+                input(f"Table count is now: {self.table_count}")
+            #warn user this will destroy the tables
 
     def change_hourly_rate(self,new_hourly_rate):
-        self.hourly_rate = new_hourly_rate
-        self.dump_config()
+        if self.table_reset_permissions():
+            self.hourly_rate = new_hourly_rate
+            self.dump_config()
+            self.set_up_tables()
+            input(f"Hourly Rate is now: ${self.hourly_rate}")
 
 #set up the tables, figure out how to modify for saves, and on the fly pool table count changes
     def set_up_tables(self):
+        if self.table_reset_permissions():
+            self.table_array = []
+            for index in range(1,self.table_count+1):
+                self.table_array.append(Pooltable(index,"open",self.hourly_rate))
+            print("I AM THE TABLE!")
+            self.big_dump()
+
+    def force_set_up_tables(self):
+        self.table_array = []
         for index in range(1,self.table_count+1):
             self.table_array.append(Pooltable(index,"open",self.hourly_rate))
         print("I AM THE TABLE!")
-
+        self.big_dump()
+        
     def load_table_state(self):
         os.system("touch pooltable_save_state.json")
         with open('pooltable_save_state.json') as file:
@@ -51,6 +78,15 @@ class Manager:
     def display_tables(self):
         for table in self.table_array:
             print(f"Table[{table.table_number}]: {table.status}:")
+
+        #if len(self.table_array)%2 == 0:
+        #    split_index = int(len(self.table_array)/2)
+        #else:
+        #    split_index = int((len(self.table_array)+1)/2)
+        #for index in range(split_index):
+        #    print(f"Table[{self.table_array[index].table_number}]: {self.table_array[index].status}:",end= '\t')
+        #for index in range(split_index,len(self.table_array)):
+        #    print(f"Table[{self.table_array[index].table_number}]: {self.table_array[index].status}:")
 
             #consider moving to views also show time stamps in menu
 
@@ -81,6 +117,7 @@ class Manager:
             print("incorrect table number try again")
         else:
             self.table_array[table_select].close_table()
+            self.append_report(table_select)
         self.big_dump()
 
     def table_to_dict(self):
