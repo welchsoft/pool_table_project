@@ -9,6 +9,8 @@ class Main:
         self.menu_select = ''
         self.table_pointer = ''
         self.options_input = ''
+
+#main "loop" for decision making, it actualy just relies on recursive calls after most choices conclude
     def main_menu(self):
         os.system("clear")
         self.ascii_pool()
@@ -20,32 +22,43 @@ class Main:
         if self.menu_select == "1":
             self.mystore.rent_out_table(self.table_selecter())
             self.main_menu()
+
         elif self.menu_select == "2":
             self.mystore.cash_out(self.table_selecter())
             self.main_menu()
+
         elif self.menu_select == "3":
             self.mystore.close_table(self.table_selecter())
             self.main_menu()
+
         elif self.menu_select == "4":
             self.mystore.open_up_table(self.table_selecter())
             self.main_menu()
+
         elif self.menu_select == "5":
             self.options_menu()
             self.main_menu()
+
         elif self.menu_select == "q":
             self.normal_exit()
+
         elif self.menu_select == "doge":
             self.doge_bye()
+
         elif self.menu_select == "cowboy":
             self.cowboy_exit()
+
         elif self.menu_select == "bang":
             self.bang_exit()
+
         else:
             self.main_menu()
 
+#maybe this will be expanded later, for now its a glorified print statement
     def display_hourly_rate(self):
         print(f"Hourly Rate: is ${self.mystore.hourly_rate}")
 
+#options for the main menu
     def menu_primary_options(self):
         print("[1] rent out table: ")
         print("[2] cash out table: ")
@@ -53,6 +66,7 @@ class Main:
         print("[4] release table from maintenance: ")
         print("[5] for options menu: ")
 
+#options options menu side path off the main menu
     def options_menu(self):
         os.system("clear")
         self.display_hourly_rate()
@@ -88,7 +102,7 @@ class Main:
             self.options_menu()
 
 
-
+#displays the options available in the options menu
     def options_menu_options(self):
         print("OPTIONS: ")
         print("\t[1] Reinitialize all tables: ")
@@ -96,6 +110,7 @@ class Main:
         print("\t[3] Change Table Count: ")
         print("\t[4] Force Reinitialize [WARNING!] will drop all table states")
 
+#used for most main menu choices
     def table_selecter(self):
         while True:
             self.table_pointer = int(input("Enter Table number: "))-1
@@ -110,6 +125,7 @@ class Main:
             else:
                print(f"must be a number between 1 and {len(self.mystore.table_array)}:")
 
+#just making sure you input a number for the hourly rate and table count
     def options_input_validator(self):
         while True:
             self.options_input = input("Enter number: ")
@@ -123,6 +139,8 @@ class Main:
                 break
             else:
                print("must be a number:")
+
+#the logo how spiffy!
     def ascii_pool(self):
         print("        ____")
         print("    ,dP9CGG88@b,")
@@ -137,7 +155,8 @@ class Main:
         print(" `Y8888888@@@@@@@P'......")
         print("    `@@@@@@@@@P'.......")
 
-    #nest other exit methods inside normal_exit YOU FOOL!
+#got a bit carried away with easter egg exits
+#nest other exit methods inside normal_exit YOU FOOL!
     def normal_exit(self):
         os.system("clear")
         input("hit Enter to KILL application: ")

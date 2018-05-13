@@ -22,5 +22,53 @@
     "total_time": 11.496032953262329,
     "rate": 30,
     "cost": 0.1
+  },
+  {
+    "table_number": 2,
+    "status": "open",
+    "start_stamp": "2018-05-13 13:38:06.261359",
+    "start_time": 1526236686.261387,
+    "end_stamp": "2018-05-13 13:38:10.605286",
+    "end_time": 1526236690.605312,
+    "total_stamp": "0.07 minutes",
+    "total_time": 4.3439249992370605,
+    "rate": 30,
+    "cost": 0.04
+  },
+  {
+    "table_number": 1,
+    "status": "open",
+    "start_stamp": "2018-05-13 14:16:19.618851",
+    "start_time": 1526238979.618882,
+    "end_stamp": "2018-05-13 14:16:26.842275",
+    "end_time": 1526238986.8423018,
+    "total_stamp": "0.12 minutes",
+    "total_time": 7.223419904708862,
+    "rate": 30,
+    "cost": 0.06
+  },
+  {
+    "table_number": 13,
+    "status": "closed",
+    "start_stamp": "",
+    "start_time": 0,
+    "end_stamp": "",
+    "end_time": 0,
+    "total_stamp": "",
+    "total_time": 0,
+    "rate": 30,
+    "cost": 0.0
+  },
+  {
+    "table_number": 13,
+    "status": "open",
+    "start_stamp": "",
+    "start_time": 0,
+    "end_stamp": "",
+    "end_time": 0,
+    "total_stamp": "",
+    "total_time": 0,
+    "rate": 30,
+    "cost": 0.0
   }
 ]

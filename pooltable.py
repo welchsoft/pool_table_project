@@ -15,6 +15,7 @@ class Pooltable:
         self.rate = rate
         self.cost = 0.0
 
+#sets table to occupied, and time values for start time /stamp
     def occupy_table(self):
         if self.status == "open":
             self.status = "occupied"
@@ -25,7 +26,7 @@ class Pooltable:
             print("Error: invalid table status ")
             input()
 
-
+#opens the table and generates time values and stamps for end / total
     def open_table(self):
         if self.status == "occupied":
             self.status = "open"
@@ -41,7 +42,7 @@ class Pooltable:
         else:
             print("Table is already open: ")
             input()
-
+#used for cashing tables, checks permission then calls open_table
     def cash_table(self):
         if self.status == "occupied":
             self.open_table()
@@ -51,7 +52,7 @@ class Pooltable:
         else:
             print("Error: invalid table status ")
             input()
-
+#closes table for maintenance, checks status first
     def close_table(self):
         if self.status == "open":
             self.status = "closed"
@@ -62,7 +63,7 @@ class Pooltable:
             input()
         elif self.status == "occupied":
             self.cash_table()
-
+#needed to load from file the state of all atributes that are not set up on instantiation
     def rebuild(self,start_stamp,start_time,end_stamp,end_time,total_stamp,total_time,cost):
         self.start_stamp = start_stamp
         self.start_time = start_time

@@ -15,6 +15,8 @@ class Manager:
         self.config = {}
         self.flag = True
 
+#checks to make sure pool tables are cashed out before allowing a re-initialization of pool tables
+# figure out on the fly pool table count changes and hourly rate changes
     def table_reset_permissions(self):
         self.flag = True
         for table in self.table_array:
@@ -25,15 +27,17 @@ class Manager:
             print("Error you must cash out before proceeding")
             input()
         else:
-            True
+            return True
+
+#changes the table count, checks permission first, saves to config then re-initialized tables
     def change_table_count(self,new_table_count):
             if self.table_reset_permissions():
                 self.table_count = new_table_count
                 self.dump_config()
                 self.set_up_tables()
                 input(f"Table count is now: {self.table_count}")
-            #warn user this will destroy the tables
 
+#changes the hourly rate, checks permission first, saves to config then re-initialized tables
     def change_hourly_rate(self,new_hourly_rate):
         if self.table_reset_permissions():
             self.hourly_rate = new_hourly_rate
@@ -41,7 +45,7 @@ class Manager:
             self.set_up_tables()
             input(f"Hourly Rate is now: ${self.hourly_rate}")
 
-#set up the tables, figure out how to modify for saves, and on the fly pool table count changes
+#used for reinitalization of tables, checks permission first
     def set_up_tables(self):
         if self.table_reset_permissions():
             self.table_array = []
@@ -50,6 +54,7 @@ class Manager:
             print("I AM THE TABLE!")
             self.big_dump()
 
+#forced re-initialize tables, NO PERMISSIONS CHECK!
     def force_set_up_tables(self):
         self.table_array = []
         for index in range(1,self.table_count+1):
@@ -57,6 +62,7 @@ class Manager:
         print("I AM THE TABLE!")
         self.big_dump()
 
+#reads in table state from .json file, if nothing there it calls set up tables instead
     def load_table_state(self):
         os.system("touch pooltable_save_state.json")
         with open('pooltable_save_state.json') as file:
@@ -68,17 +74,19 @@ class Manager:
             else:
                 with open('pooltable_save_state.json') as load_table:
                     self.dict_array = json.load(load_table)
-
+#dumps the array and loads in the .json record, stay sour python pickle users!
         self.table_array = []
         for dict in self.dict_array:
             pooltable = Pooltable(dict["table_number"],dict["status"],dict["rate"])
             pooltable.rebuild(dict["start_stamp"],dict["start_time"],dict["end_stamp"],dict["end_time"],dict["total_stamp"],dict["total_time"],dict["cost"])
             self.table_array.append(pooltable)
 
+#displays the tables and their state, shouldnt this be in the main menu???
     def display_tables(self):
         for table in self.table_array:
             print(f"Table[{table.table_number}]: {table.status}:")
 
+#Tried to make 2 columns, didnt work out maybe some day!
         #if len(self.table_array)%2 == 0:
         #    split_index = int(len(self.table_array)/2)
         #else:
@@ -90,13 +98,14 @@ class Manager:
 
             #consider moving to views also show time stamps in menu
 
+#set table to occupied
     def rent_out_table(self,table_select):
         if table_select not in range(len(self.table_array)):
             print("incorrect table number try again")
         else:
             self.table_array[table_select].occupy_table()
         self.big_dump()
-
+#cash out occupied table
     def cash_out(self,table_select):
         if table_select not in range(len(self.table_array)):
             print("incorrect table number try again")
@@ -104,14 +113,14 @@ class Manager:
             self.table_array[table_select].cash_table()
             self.append_report(table_select)
         self.big_dump()
-
+#revive table that is in maintenance
     def open_up_table(self,table_select):
         if table_select not in range(len(self.table_array)):
             print("incorrect table number try again")
         else:
             self.table_array[table_select].open_table()
         self.big_dump()
-
+#put a table out of its misery
     def close_table(self,table_select):
         if table_select not in range(len(self.table_array)):
             print("incorrect table number try again")
@@ -119,22 +128,23 @@ class Manager:
             self.table_array[table_select].close_table()
             self.append_report(table_select)
         self.big_dump()
-
+#constructs array of dictionaries that are table objects cast to __dict__
     def table_to_dict(self):
         self.dict_array = []
         for index in range(len(self.table_array)):
             self.dict_array.append(self.table_array[index].__dict__)
-
+#contrcuts the save state file, this keeps the state of tables between sessions
     def big_dump(self):
         self.table_to_dict()
         with open('pooltable_save_state.json','w') as file:
             file.write(json.dumps(self.dict_array,indent=2))
 
+#makes Reports directory and generates files to it for each unique day of operation
     def generate_report(self):
         os.system("mkdir Reports")
         self.report_date = time.strftime("%m-%d-%Y")
         os.system("touch Reports/"+self.report_date+".json")
-
+#Appends the report of the day any time it is called with new info
     def append_report(self,table_select):
         self.generate_report()
 
@@ -151,18 +161,18 @@ class Manager:
 
         with open("Reports/"+self.report_date+".json",'w') as report_json:
             report_json.write(json.dumps(self.report_array,indent=2))
-
+#allows the Manager to update its data from a config file
     def update_from_config(self):
         os.system("touch config.json")
         with open('config.json') as config:
             self.config = json.load(config)
             self.table_count = self.config["table_count"]
             self.hourly_rate = self.config["hourly_rate"]
-
+#updates the config content
     def dump_config(self):
         self.config.update({"table_count":self.table_count, "hourly_rate":self.hourly_rate})
         with open('config.json','w') as config:
             config.write(json.dumps(self.config))
 
-#known shortcomings: set up tables is not savestate ready
+
 #most of the code assumes table_count will not change after set-up has already been called
