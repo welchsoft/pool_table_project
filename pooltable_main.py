@@ -8,10 +8,12 @@ class Main:
         self.mystore = Manager()
         self.mystore.load_table_state()
         self.mystore.update_from_config()
+        self.mystore.total_sales_lookup()
         self.menu_select = ''
         self.table_pointer = ''
         self.options_input = ''
-        self.main_flag = True
+        #self.main_flag = True
+        self.pool_rotate = 0
 
 #main "loop" for decision making, it actualy just relies on recursive calls after most choices conclude
     def main_menu(self):
@@ -44,20 +46,8 @@ class Main:
             self.options_menu()
             self.main_menu()
 
-        #elif self.menu_select == "R":
-        #    self.main_menu()
-
         elif self.menu_select == "q":
             self.normal_exit()
-
-        elif self.menu_select == "doge":
-            self.doge_bye()
-
-        elif self.menu_select == "cowboy":
-            self.cowboy_exit()
-
-        elif self.menu_select == "bang":
-            self.bang_exit()
 
         else:
             self.main_menu()
@@ -75,9 +65,13 @@ class Main:
     def display_hourly_rate(self):
         print(f"\n[Hourly Rate: is ${self.mystore.hourly_rate}]")
 
+#maybe this will be expanded later, for now its a glorified print statement
+    def display_table_count(self):
+        print(f"[Table Count: is {self.mystore.table_count}]")
 
+#maybe this will expand later, for now its a glofified print statement
     def display_total_sales(self):
-        print(f"Current Total Sales: ${self.mystore.total_sales}")
+        print(f"Todays Total Sales: ${self.mystore.total_sales}")
         print("==========================================")
 
 #options for the main menu
@@ -88,11 +82,13 @@ class Main:
         print("\t[3] Close table for maintenance: ")
         print("\t[4] Release table from maintenance: ")
         print("\t[5] Options menu: ")
+        print("\t[Enter] Refresh Page: ")
 
 #options options menu side path off the main menu
     def options_menu(self):
         os.system("clear")
         self.display_hourly_rate()
+        self.display_table_count()
         self.options_menu_options()
         self.menu_select = input("\t[X] to go back: \n").lower()
 
@@ -109,8 +105,8 @@ class Main:
             self.options_menu()
 
         elif self.menu_select == "4":
-            self.menu_select = input("Are you realy sure? This is the Nuclear option! (yes / no): ")
-            if self.menu_select.lower() == "yes":
+            self.menu_select = input("Are you realy sure? This is the Nuclear option! (yes / no): ").lower()
+            if self.menu_select == "yes":
                 self.mystore.force_set_up_tables()
                 input()
             else:
@@ -127,7 +123,7 @@ class Main:
 
 #displays the options available in the options menu
     def options_menu_options(self):
-        print("OPTIONS: ")
+        print("==================[OPTIONS]==================")
         print("\t[1] Reinitialize all tables: ")
         print("\t[2] Change Hourly Rate: ")
         print("\t[3] Change Table Count: ")
@@ -165,25 +161,50 @@ class Main:
 
 #the logo how spiffy!
     def ascii_pool(self):
-        print("\t        ____")
-        print("\t    ,dP9CGG88@b,")
-        print("\t  ,IP  _   Y888@@b,")
-        print("\t dIi  (_)   G8888@b")
-        print("\tdCII  (_)   G8888@@b")
-        print("\tGCCIi     ,GG8888@@@")
-        print("\tGGCCCCCCCGGG88888@@@")
-        print("\tGGGGCCCGGGG88888@@@@...")
-        print("\tY8GGGGGG8888888@@@@P.....")
-        print("\t Y88888888888@@@@@P......")
-        print("\t `Y8888888@@@@@@@P'......")
-        print("\t    `@@@@@@@@@P'.......")
+        if self.pool_rotate == 5:
+            self.pool_rotate = 0
+            print("\t        ____")
+            print("\t    ,dP9CGG88@b,")
+            print("\t  ,IPC888888888@@b,")
+            print("\t dIi8888888888888@b")
+            print("\tdCIIGGGGGG8888888@@b")
+            print("\tGCCIICCCCCCCG8888@@@")
+            print("\tGGCCCCCCCGGG88888@@@")
+            print("\tGGGGCCCGGGG88888@@@@...")
+            print("\tY8GGGGGG8888888@@@@P.....")
+            print("\t Y88888888888@@@@@P......")
+            print("\t `Y8888888@@@@@@@P'......")
+            print("\t    `@@@@@@@@@P'.......")
+        else:
+            print("\t        ____")
+            print("\t    ,dP9CGG88@b,")
+            print("\t  ,IP  _   Y888@@b,")
+            print("\t dIi  (_)   G8888@b")
+            print("\tdCII  (_)   G8888@@b")
+            print("\tGCCIi     ,GG8888@@@")
+            print("\tGGCCCCCCCGGG88888@@@")
+            print("\tGGGGCCCGGGG88888@@@@...")
+            print("\tY8GGGGGG8888888@@@@P.....")
+            print("\t Y88888888888@@@@@P......")
+            print("\t `Y8888888@@@@@@@P'......")
+            print("\t    `@@@@@@@@@P'.......")
 
+        self.pool_rotate += 1
 #got a bit carried away with easter egg exits
 #nest other exit methods inside normal_exit YOU FOOL!
     def normal_exit(self):
         os.system("clear")
-        input("hit Enter to KILL application: ")
-        input("\n\n\n\n\n\n\tʕっ•ᴥ•ʔっ Goodbye friend!")
+        self.menu_select = input("hit Enter to KILL application: ").lower()
+        if self.menu_select == "doge":
+            self.doge_exit()
+
+        elif self.menu_select == "cowboy":
+            self.cowboy_exit()
+
+        elif self.menu_select == "bang":
+            self.bang_exit()
+        else:
+            input("\n\n\n\n\n\n\t\tʕっ•ᴥ•ʔっ Goodbye friend!")
         os.system("clear")
 
     def cowboy_exit(self):
@@ -194,7 +215,7 @@ class Main:
         os.system("clear")
         input("\n\n\n\n\n\n\n\n\n\t\t\t\tYOUR'RE GONNA CARRY THAT WEIGHT.")
         os.system("clear")
-    def doge_bye(self):
+    def doge_exit(self):
         os.system("clear")
         print("░░░░░░░░░▄░░░░░░░░░░░░░░▄")
         print("░░░░░░░░▌▒█░░░░░░░░░░░▄▀▒▌")

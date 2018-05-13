@@ -86,9 +86,11 @@ class Manager:
     def display_tables(self):
         for table in self.table_array:
             if table.status == "occupied":
-                print(f"Table[{table.table_number}]: {table.status}: session start: {table.start_stamp}: playtime: {round((time.time() - table.start_time)/60,2)} minutes")
+                print(f"TABLE[{table.table_number}]\t[{table.status.upper()}]\t[Start: {table.start_stamp}: Play Time: {round((time.time() - table.start_time)/60,2)} minutes]")
+            elif table.status == "closed":
+                print(f"TABLE[{table.table_number}]\t[{table.status.upper()}]\t[Down Since: {table.start_stamp}]")
             else:
-                print(f"Table[{table.table_number}]: {table.status}:")
+                print(f"TABLE[{table.table_number}]\t[{table.status.upper()}]")
 
 #Tried to make 2 columns, didnt work out maybe some day!
         #if len(self.table_array)%2 == 0:
@@ -117,7 +119,7 @@ class Manager:
             self.table_array[table_select].cash_table()
             self.append_report(table_select)
         self.big_dump()
-        self.total_sales += self.table_array[table_select].sales
+        self.total_sales_lookup()
 #revive table that is in maintenance
     def open_up_table(self,table_select):
         if table_select not in range(len(self.table_array)):
@@ -166,6 +168,23 @@ class Manager:
 
         with open("Reports/"+self.report_date+".json",'w') as report_json:
             report_json.write(json.dumps(self.report_array,indent=2))
+
+    def total_sales_lookup(self):
+        self.generate_report()
+
+        with open("Reports/"+self.report_date+".json",'r+') as file:
+            file.seek(0)
+            first_char = file.read(1)
+            if not first_char:
+                file.write("[]")
+            else:
+                with open("Reports/"+self.report_date+".json") as load_report:
+                    self.report_array = json.load(load_report)
+
+        self.total_sales = 0
+        for report in self.report_array:
+            self.total_sales += report["sales"]
+
 #allows the Manager to update its data from a config file
     def update_from_config(self):
         os.system("touch config.json")

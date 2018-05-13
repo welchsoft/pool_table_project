@@ -214,5 +214,89 @@
     "total_time": 0,
     "rate": 30,
     "sales": 0.0
+  },
+  {
+    "table_number": 3,
+    "status": "open",
+    "start_stamp": "2018-05-13 15:48:27.252622",
+    "start_time": 1526244507.252649,
+    "end_stamp": "2018-05-13 16:14:52.972878",
+    "end_time": 1526246092.9729128,
+    "total_stamp": "26.43 minutes",
+    "total_time": 1585.7202637195587,
+    "rate": 30,
+    "sales": 13.21
+  },
+  {
+    "table_number": 3,
+    "status": "open",
+    "start_stamp": "2018-05-13 16:15:01.892514",
+    "start_time": 1526246101.892542,
+    "end_stamp": "2018-05-13 16:22:04.874332",
+    "end_time": 1526246524.874366,
+    "total_stamp": "7.05 minutes",
+    "total_time": 422.9818241596222,
+    "rate": 30,
+    "sales": 3.52
+  },
+  {
+    "table_number": 5,
+    "status": "open",
+    "start_stamp": "2018-05-13 15:48:30.676856",
+    "start_time": 1526244510.676883,
+    "end_stamp": "2018-05-13 16:22:52.575762",
+    "end_time": 1526246572.575788,
+    "total_stamp": "34.36 minutes",
+    "total_time": 2061.8989050388336,
+    "rate": 30,
+    "sales": 17.18
+  },
+  {
+    "table_number": 3,
+    "status": "open",
+    "start_stamp": "2018-05-13 16:22:23.687614",
+    "start_time": 1526246543.687664,
+    "end_stamp": "2018-05-13 16:36:23.658566",
+    "end_time": 1526247383.658588,
+    "total_stamp": "14.0 minutes",
+    "total_time": 839.9709239006042,
+    "rate": 30,
+    "sales": 7.0
+  },
+  {
+    "table_number": 4,
+    "status": "closed",
+    "start_stamp": "",
+    "start_time": 0,
+    "end_stamp": "",
+    "end_time": 0,
+    "total_stamp": "",
+    "total_time": 0,
+    "rate": 30,
+    "sales": 0.0
+  },
+  {
+    "table_number": 4,
+    "status": "closed",
+    "start_stamp": "",
+    "start_time": 0,
+    "end_stamp": "",
+    "end_time": 0,
+    "total_stamp": "",
+    "total_time": 0,
+    "rate": 30,
+    "sales": 0.0
+  },
+  {
+    "table_number": 4,
+    "status": "closed",
+    "start_stamp": "2018-05-13 16:58:57.130805",
+    "start_time": 0,
+    "end_stamp": "",
+    "end_time": 0,
+    "total_stamp": "",
+    "total_time": 0,
+    "rate": 30,
+    "sales": 0.0
   }
 ]

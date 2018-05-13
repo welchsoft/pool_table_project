@@ -19,9 +19,9 @@ class Pooltable:
     def occupy_table(self):
         if self.status == "open":
             self.status = "occupied"
-            print(f"table[{self.table_number}] is now occupied!")
             self.start_stamp = str(datetime.now())
             self.start_time = time.time()
+            print(f"table[{self.table_number}] is now occupied!")
         else:
             print("Error: invalid table status ")
             input()
@@ -30,11 +30,11 @@ class Pooltable:
     def open_table(self):
         if self.status == "occupied":
             self.status = "open"
-            print(f"table[{self.table_number}] is now available!")
             self.end_stamp = str(datetime.now())
             self.end_time = time.time()
             self.total_time = self.end_time - self.start_time
             self.total_stamp = str(round((self.total_time)/60,2))+" minutes"
+            print(f"table[{self.table_number}] is now available!")
         elif self.status == "closed":
             self.status = "open"
             print(f"Table[{self.table_number}] back online! ")
@@ -56,6 +56,7 @@ class Pooltable:
     def close_table(self):
         if self.status == "open":
             self.status = "closed"
+            self.start_stamp = str(datetime.now())
             print(f"table[{self.table_number}] is down for maintenance!")
             input()
         elif self.status == "closed":
