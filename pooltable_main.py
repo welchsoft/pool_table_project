@@ -115,6 +115,9 @@ class Main:
                 input()
             self.options_menu()
 
+        elif self.menu_select == "5":
+            self.mystore.send_email()
+            self.options_menu()
         elif self.menu_select == "x":
             pass
 
@@ -129,6 +132,7 @@ class Main:
         print("\t[2] Change Hourly Rate: ")
         print("\t[3] Change Table Count: ")
         print("\t[4] Force Reinitialize [WARNING!] will drop all table states")
+        print("\t[5] Send Email: plz no spam ʕ´•ᴥ•`ʔ ")
 
 #used for most main menu choices
     def table_selecter(self):

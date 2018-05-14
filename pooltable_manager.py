@@ -4,6 +4,8 @@ import time
 from pooltable import Pooltable
 import json
 import os
+import smtplib
+from email.message import EmailMessage
 
 class Manager:
     def __init__(self):
@@ -198,5 +200,20 @@ class Manager:
         with open('config.json','w') as config:
             config.write(json.dumps(self.config))
 
+#send email of report for extreme hard mode
+#error 61 apparently im being denied by either my ISP or by my email service
+#probably for security or anti spam reasons
+    def send_email(self):
+        with open("Reports/"+self.report_date+".json") as fp:
+            msg = EmailMessage()
+            msg.set_content(fp.read())
 
+        msg['Subject'] = 'The contents of %s' % self.report_date+".json"
+#be sure not to share personal email on github
+        msg['From'] = 'make up an email'
+        msg['To'] = 'make up an email'
+
+        s = smtplib.SMTP('localhost')
+        s.send_message(msg)
+        s.quit()
 #most of the code assumes table_count will not change after set-up has already been called
