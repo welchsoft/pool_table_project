@@ -1,5 +1,6 @@
 from pooltable_manager import *
 import os
+import tkinter
 #import threading
 #nice try but a nightmare to debug maybe next time ill have an auto refreshing page
 
@@ -203,6 +204,9 @@ class Main:
 
         elif self.menu_select == "bang":
             self.bang_exit()
+
+        elif self.menu_select == "tkin":
+            self.tkin_try()
         else:
             input("\n\n\n\n\n\n\t\tʕっ•ᴥ•ʔっ Goodbye friend!")
         os.system("clear")
@@ -238,3 +242,10 @@ class Main:
         print("░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀")
         input("ok?")
         os.system("clear")
+
+    def tkin_try(self):
+        top = tkinter.Tk()
+        doge = "WHAT HAVE YOU DONE?"
+        msg = tkinter.Message(top, text = doge)
+        msg.pack()
+        top.mainloop()

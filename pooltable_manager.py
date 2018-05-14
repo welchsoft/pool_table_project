@@ -86,11 +86,11 @@ class Manager:
     def display_tables(self):
         for table in self.table_array:
             if table.status == "occupied":
-                print(f"TABLE[{table.table_number}]\t[{table.status.upper()}]\t[Start: {table.start_stamp}: Play Time: {round((time.time() - table.start_time)/60,2)} minutes]")
+                print(f"TABLE[{table.table_number}]\t[\33[94m{table.status.upper()}\33[0m]\t[Start: {table.start_stamp}: Play Time: {round((time.time() - table.start_time)/60,2)} minutes]")
             elif table.status == "closed":
-                print(f"TABLE[{table.table_number}]\t[{table.status.upper()}]\t[Down Since: {table.start_stamp}]")
+                print(f"TABLE[{table.table_number}]\t[\33[91m{table.status.upper()}\33[0m]\t[Down Since: {table.start_stamp}]")
             else:
-                print(f"TABLE[{table.table_number}]\t[{table.status.upper()}]")
+                print(f"TABLE[{table.table_number}]\t[\33[92m{table.status.upper()}\33[0m]")
 
 #Tried to make 2 columns, didnt work out maybe some day!
         #if len(self.table_array)%2 == 0:

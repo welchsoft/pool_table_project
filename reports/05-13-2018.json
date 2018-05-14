@@ -298,5 +298,17 @@
     "total_time": 0,
     "rate": 30,
     "sales": 0.0
+  },
+  {
+    "table_number": 9,
+    "status": "open",
+    "start_stamp": "2018-05-13 15:48:33.556360",
+    "start_time": 1526244513.5563881,
+    "end_stamp": "2018-05-13 19:24:10.362058",
+    "end_time": 1526257450.362109,
+    "total_stamp": "215.61 minutes",
+    "total_time": 12936.805720806122,
+    "rate": 30,
+    "sales": 107.81
   }
 ]
